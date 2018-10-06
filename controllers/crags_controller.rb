@@ -3,7 +3,7 @@ require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require('pry')
 require_relative( '../models/crag.rb' )
-also_reload( './models/*' )
+also_reload( '../models/*' )
 
 # get ('/crags') do
 #   "Hello World"

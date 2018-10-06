@@ -39,7 +39,7 @@ class Route
     result = routes.map { |route|  Route.new(route) }
     return result
   end
-  
+
   def update()
     sql = "UPDATE routes
     SET (
@@ -68,6 +68,19 @@ class Route
     WHERE id = $1;"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def grade()
+    sg = @summer_grade
+    wg = @winter_grade
+      if sg != nil && wg != nil
+      grade = "#{sg} and #{wg}"
+      elsif sg == nil
+      grade = "#{wg}"
+      elsif wg == nil
+      grade = "#{sg}"
+      end
+    return grade
   end
 
 end

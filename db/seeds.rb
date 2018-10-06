@@ -20,6 +20,12 @@ options = {
 book2 = Book.new(options)
 book2.save
 
+options = {
+  "area" => "Glen Coe",
+  }
+book3 = Book.new(options)
+book3.save
+
 list = Book.all
 # binding.pry
 
@@ -33,13 +39,22 @@ options = {
   crag1.save
 
 options = {
-  "crag_name" => "Minus Buttress",
-  "elevation" => 1000,
-  "aspect" => "N",
+  "crag_name" => "Indicator Wall",
+  "elevation" => 1200,
+  "aspect" => "NW",
   "book_id" => book1.id
   }
   crag2 = Crag.new(options)
   crag2.save
+
+options = {
+  "crag_name" => "Slime Wall",
+  "elevation" => 600,
+  "aspect" => "NW",
+  "book_id" => book3.id
+  }
+  crag3 = Crag.new(options)
+  crag3.save
 
   crag_list = Crag.all
 
@@ -63,6 +78,46 @@ options = {
     }
     route2 = Route.new(options)
     route2.save
+
+  options = {
+    "route_name" => "Rhyme of the Ancient Mariner",
+    "summer_grade" => nil,
+    "winter_grade" => "VII, 7",
+    "length" => 160,
+    "crag_id" => crag2.id
+    }
+    route3 = Route.new(options)
+    route3.save
+
+  options = {
+    "route_name" => "Psychedelic Wall",
+    "summer_grade" => nil,
+    "winter_grade" => "VI, 5",
+    "length" => 140,
+    "crag_id" => crag2.id
+    }
+    route4 = Route.new(options)
+    route4.save
+
+  options = {
+    "route_name" => "Bludger's Revelation",
+    "summer_grade" => "HVS, 5a",
+    "winter_grade" => nil,
+    "length" => 141,
+    "crag_id" => crag3.id
+    }
+    route5 = Route.new(options)
+    route5.save
+
+  options = {
+    "route_name" => "Shibboleth",
+    "summer_grade" => "E2, 5c",
+    "winter_grade" => nil,
+    "length" => 167,
+    "crag_id" => crag3.id
+    }
+    route6 = Route.new(options)
+    route6.save
 
     Route.all
 
