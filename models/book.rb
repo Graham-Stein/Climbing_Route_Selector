@@ -29,9 +29,28 @@ class Book
     sql = "SELECT * FROM books;"
     books = SqlRunner.run(sql)
     result = books.map { |book|  Book.new(book) }
-    binding.pry
     return result
+  end
 
+  def update()
+    sql = "UPDATE books
+    SET
+    area = $1
+    WHERE id = $2;"
+    values = [@area, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM books;"
+    SqlRunner.run(sql)
+  end
+
+  def delete()
+    sql = "DELETE FROM books
+    WHERE id = $1;"
+    values = [@id]
+    SqlRunner.run(sql, values)
   end
 
 end
