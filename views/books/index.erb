@@ -1,0 +1,12 @@
+<p> All Guide Books by area </p>
+
+<% for book in @books do %>
+
+<div class="book_list">
+
+<p> <%= book.area %> Guidebook</p>
+<p> <a href="/books/<%= book.id %>">View Crags in this Guide </a> </p>
+
+</div>
+
+<% end %>

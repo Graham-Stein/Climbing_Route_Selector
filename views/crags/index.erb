@@ -1,0 +1,12 @@
+<p> All Crags </p>
+
+<% for crag in @crags do %>
+
+<div class="crag_list">
+
+<p> <%= crag.crag_name %> </p>
+<p> <a href="/crag/<%= crag.id %>">View Routes on this Crag </a> </p>
+
+</div>
+
+<% end %>
