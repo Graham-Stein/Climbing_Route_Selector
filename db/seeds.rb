@@ -80,7 +80,7 @@ options = {
 # book1.area = "N Highlands"
 # binding.pry
 # book1.update
-binding.pry
+
 nil
 # options = {
 #   "id" => 1,
