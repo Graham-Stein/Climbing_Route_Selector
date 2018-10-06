@@ -1,3 +1,6 @@
+require('pry')
+require_relative('../db/sql_runner.rb')
+
 class Crag
 
   attr_reader :id, :book_id

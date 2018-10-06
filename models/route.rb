@@ -1,3 +1,6 @@
+require('pry')
+require_relative('../db/sql_runner.rb')
+
 class Route
 
   attr_reader :id, :crag_id
