@@ -13,6 +13,7 @@ class TestBook < MiniTest::Test
       }
 # binding.pry
       @book1 = Book.new(options)
+
   end
 
 
@@ -20,5 +21,10 @@ class TestBook < MiniTest::Test
     # binding.pry
     assert_equal("Ben Nevis", @book1.area)
   end
+
+  # def test_find
+  #   assert_equal("Cairngorms", Book.find(2).area)
+  # end
+  # TEST ONLY WORKS IF DB SET UP
 
 end

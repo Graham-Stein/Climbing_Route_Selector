@@ -18,3 +18,11 @@ post ('/books') do
   Book.new(params).save
   redirect to '/books'
 end
+
+# NO METHOD ERROR Even though Book.find is a METHOD
+# and it works just fine away from this route...
+get ('/books/:id/edit') do
+  @book = Book.find(params[:id])
+  binding.pry
+  erb(:"books/edit")
+end

@@ -32,6 +32,15 @@ class Book
     return result
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM books
+    WHERE id = $1;"
+    values = [id]
+    book = SqlRunner.run(sql, values)
+    result = Book.new(book[0])
+    return result
+  end
+
   def update()
     sql = "UPDATE books
     SET

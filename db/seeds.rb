@@ -121,6 +121,9 @@ options = {
 
     Route.all
 
+    # Book.find(8)
+    # binding.pry
+
     # route2.length = 50000
     # route2.update
   # book2.delete
