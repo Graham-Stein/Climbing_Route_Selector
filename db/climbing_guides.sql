@@ -12,7 +12,7 @@ CREATE TABLE crags(
   crag_name VARCHAR(255),
   elevation INT,
   aspect VARCHAR(255),
-  book_id INT REFERENCES books(id)
+  book_id INT REFERENCES books(id) ON DELETE CASCADE
 );
 
 CREATE TABLE routes(
@@ -21,5 +21,5 @@ CREATE TABLE routes(
   summer_grade VARCHAR(255),
   winter_grade VARCHAR(255),
   length INT,
-  crag_id INT REFERENCES crags(id)
+  crag_id INT REFERENCES crags(id) ON DELETE CASCADE
 );
