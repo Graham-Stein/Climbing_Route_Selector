@@ -1,0 +1,31 @@
+<h1> Create New Route: </h1><br>
+
+<form method="POST" action="/routes/">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="route_name">Route:</label>
+      <input type="text" name="route_name" id="route_name" />
+      <label for="summer_gade">Summer Grade:</label>
+      <input type="text" name="summer_grade" id="summer_gade" />
+      <label for="winter_grade">Winter Grade:</label>
+      <input type="text" name="winter_grade" id="winter_grade" />
+      <label for="length">Length:</label>
+      <input type="number" name="length" id="length" />
+
+      <label for="crag_id"></label>
+      <select  name="crag_id">
+        <% @crags.each do |crag| %>
+
+        <option value=<%= crag.id %>><%= crag.crag_name %>
+        </option>
+
+        <% end %>
+      </select>
+    </div><br>
+
+    <div class="form-el">
+      <input type="submit" value="Add new Route"/>
+    </div><br>
+  </div>
+</form>
