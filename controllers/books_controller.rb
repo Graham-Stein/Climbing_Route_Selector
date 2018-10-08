@@ -19,18 +19,15 @@ post ('/books') do
   redirect to '/books'
 end
 
-# NO METHOD ERROR Even though Book.find is a METHOD
-# and it works just fine away from this route...
 get ('/books/:id/edit') do
   @book = Book.find(params[:id])
-  binding.pry
   erb(:"books/edit")
 end
 
-# Sinatra cant even find this route
+# Sinatra can't even find this route
 # thats before the Book.find problem...
-post '/books/:id/delete' do
-  book = Book.find( params[:id] )
+post ('/books/:id/delete') do
+  book = Book.find(params[:id])
   book.delete()
   redirect to '/books'
 end
