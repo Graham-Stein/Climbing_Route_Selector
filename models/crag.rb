@@ -39,6 +39,15 @@ class Crag
     return result
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM crags
+    WHERE id = $1;"
+    values = [id]
+    crag = SqlRunner.run(sql, values)
+    result = Crag.new(crag[0])
+    return result
+  end
+
   def update()
     sql = "UPDATE crags
     SET
