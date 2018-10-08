@@ -40,6 +40,15 @@ class Route
     return result
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM routes
+    WHERE id = $1;"
+    values = [id]
+    route = SqlRunner.run(sql, values)
+    result = Route.new(route[0])
+    return result
+  end
+
   def update()
     sql = "UPDATE routes
     SET (

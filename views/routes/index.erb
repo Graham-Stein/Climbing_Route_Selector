@@ -5,7 +5,11 @@
 <div class="route_list">
 
 <p> <%= route.route_name %> is a <%= route.length %>m long <%= route.grade %></p>
+<p> <a href="/routes/<%= route.id %>/edit">Edit this Route </a> </p>
 
+<form class="delete_button" action="/routes/<%= route.id %>/delete" method="POST">
+  <input type="submit" value="Delete">
+</form>
 
 </div>
 

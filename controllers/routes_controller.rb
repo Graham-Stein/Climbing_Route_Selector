@@ -19,3 +19,22 @@ post ('/routes/') do
   Route.new(params).save
   redirect to '/routes'
 end
+
+
+########### STUCK AT THIS POINT
+get ('routes/:id/edit')do
+binding.pry
+  @route = Route.find(params[:id])
+  erb(:"routes/edit")
+end
+
+post ('/routes/:id') do
+  Route.new(params).update
+  redirect to ('/routes')
+end
+
+post ('/routes/:id/delete') do
+  route = Route.find(params[:id])
+  route.delete()
+  redirect to '/routes'
+end
