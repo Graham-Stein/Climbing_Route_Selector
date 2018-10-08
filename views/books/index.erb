@@ -7,6 +7,7 @@
 <p> <%= book.area %> Guidebook</p>
 <p> <a href="/books/<%= book.id %>">View Crags in this Guide </a> </p>
 <h2> <a href="/books/<%= book.id %>/edit">Edit this Guide Book</a> </h2>
+
 <form class="delete_button" action="/books/<%= book.id %>/delete" method="POST">
   <input type="submit" value="Delete">
 </form>

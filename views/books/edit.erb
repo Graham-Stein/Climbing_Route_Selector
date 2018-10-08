@@ -1,1 +1,16 @@
-<h1> Hello!!! </h1>
+<h1> Edit <%= @book.area %> Guidebook </h1>
+
+<form method="POST" action="/books/<%= @book.id %>">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="area">Area:</label>
+      <input type="text" name="area" id="area"/>
+    </div>
+
+    <div class="form-el">
+      <input type="submit" value="Update Guidebook"/>
+    </div>
+
+  </div>
+</form>

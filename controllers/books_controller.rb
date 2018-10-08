@@ -24,8 +24,12 @@ get ('/books/:id/edit') do
   erb(:"books/edit")
 end
 
-# Sinatra can't even find this route
-# thats before the Book.find problem...
+post ('/books/:id') do
+  Book.new(params).update
+  redirect to '/books'
+
+end
+
 post ('/books/:id/delete') do
   book = Book.find(params[:id])
   book.delete()
