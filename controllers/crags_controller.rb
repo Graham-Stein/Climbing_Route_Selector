@@ -10,6 +10,16 @@ get ('/crags') do
   erb(:"crags/index")
 end
 
+get ('/crags/new') do
+  @books = Book.all()
+  erb(:"crags/new")
+end
+
+post ('/crags/') do
+  Crag.new(params).save
+  redirect to '/crags'
+end
+
 get ('/crags/:id/edit') do
   @crag = Crag.find(params[:id])
   erb(:"crags/edit")

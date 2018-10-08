@@ -24,4 +24,9 @@ class TestCrag < MiniTest::Test
     assert_equal("Carn Dearg Buttress", @crag1.crag_name)
   end
 
+  # def test_find
+  #   assert_equal("Slime Wall", Crag.find(3).crag_name)
+  # end
+  # TEST ONLY WORKS IF DB SET UP
+
 end

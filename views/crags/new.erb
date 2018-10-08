@@ -1,0 +1,29 @@
+<h1> Create New Crag: </h1><br>
+
+<form method="POST" action="/crags/">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="crag_name">Crag:</label>
+      <input type="text" name="crag_name" id="crag_name" />
+      <label for="elevation">Elevation:</label>
+      <input type="number" name="elevation" id="elevation" />
+      <label for="aspect">Aspect:</label>
+      <input type="text" name="aspect" id="aspect" />
+
+      <label for="book_id"></label>
+      <select  name="book_id">
+        <% @books.each do |book| %>
+
+        <option value=<%= book.id %>><%= book.area %>
+        </option>
+
+        <% end %>
+      </select>
+    </div><br>
+
+    <div class="form-el">
+      <input type="submit" value="Add new Crag"/>
+    </div><br>
+  </div>
+</form>
