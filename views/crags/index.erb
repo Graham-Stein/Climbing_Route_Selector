@@ -2,12 +2,12 @@
 
 <% for crag in @crags do %>
 
-<div class="crag_list">
+<div class="crag_list"><br>
 
 <p> <%= crag.crag_name %> </p>
 <p> <a href="/crags/<%= crag.id %>">View Routes on this Crag </a> </p>
 <p> <a href="/crags/<%= crag.id %>/edit">Edit this Crag </a> </p>
 
-</div>
+</div><br>
 
 <% end %>

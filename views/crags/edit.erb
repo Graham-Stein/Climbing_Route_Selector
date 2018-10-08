@@ -1,4 +1,4 @@
-<h1> Edit Crag: <%= @crag.crag_name %></h1>
+<h1> Edit Crag: <%= @crag.crag_name %></h1><br>
 
 <form method="POST" action="/crags/<%= @crag.id %>">
   <div class="form-wrapper">
@@ -9,12 +9,13 @@
       <label for="elevation">Elevation:</label>
       <input type="number" name="elevation" id="elevation" value="<%= @crag.elevation %>"/>
       <label for="aspect">Aspect:</label>
-      <input type="text" name="aspect" id="aspect"/>
-    </div>
+      <input type="text" name="aspect" id="aspect" value= "<%= @crag.aspect %>"/>
+      <label for="book_id"></label>
+      <input type="number" name="book_id" id="book_id" value="<%= @crag.book_id %>" hidden/>
+    </div><br>
 
     <div class="form-el">
       <input type="submit" value="Update Crag"/>
-    </div>
-
+    </div><br>
   </div>
 </form>
