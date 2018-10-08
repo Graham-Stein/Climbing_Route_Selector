@@ -29,3 +29,9 @@ post ('/crags/:id') do
   Crag.new(params).update
   redirect to ('/crags')
 end
+
+post ('/crags/:id/delete') do
+  crag = Crag.find(params[:id])
+  crag.delete()
+  redirect to '/crags'
+end

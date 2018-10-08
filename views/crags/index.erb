@@ -8,6 +8,10 @@
 <p> <a href="/crags/<%= crag.id %>">View Routes on this Crag </a> </p>
 <p> <a href="/crags/<%= crag.id %>/edit">Edit this Crag </a> </p>
 
+<form class="delete_button" action="/crags/<%= crag.id %>/delete" method="POST">
+  <input type="submit" value="Delete">
+</form>
+
 </div><br>
 
 <% end %>
