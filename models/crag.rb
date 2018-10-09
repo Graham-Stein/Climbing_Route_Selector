@@ -39,12 +39,21 @@ class Crag
     return result
   end
 
-  def self.find(id)
+  def self.all_in_book(id)
     sql = "SELECT * FROM crags
+    WHERE crags.book_id = $1;"
+    values = [id]
+    crags = SqlRunner.run(sql, values)
+    result = crags.map { |crag|  Crag.new(crag) }
+    return result
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM books
     WHERE id = $1;"
     values = [id]
-    crag = SqlRunner.run(sql, values)
-    result = Crag.new(crag[0])
+    book = SqlRunner.run(sql, values)
+    result = Crag.new(book[0])
     return result
   end
 

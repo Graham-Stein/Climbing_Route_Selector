@@ -6,8 +6,10 @@ body {
   background-size: cover;
 }
 
-li  {
-  display: inline;
+
+ nav li{
+  display: inline-block;
+
 }
 
 table {

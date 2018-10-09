@@ -1,13 +1,21 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
-require('pry')
+# require('pry')
 require_relative( '../models/book.rb' )
+require_relative( '../models/crag.rb' )
 also_reload( '../models/*' )
 
 get ('/books') do
   @books = Book.all()
   erb(:"books/index")
+end
+
+get ('/books/:id/crags') do
+  # binding.pry
+  @crags = Crag.all_in_book(params[:id])
+  # binding.pry
+  erb(:"crags/index")
 end
 
 get ('/books/new') do

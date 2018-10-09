@@ -121,6 +121,9 @@ options = {
 
     Route.all
 
+    check = Crag.all_in_book(book1.id)
+
+
     # Book.find(8)
     # binding.pry
 

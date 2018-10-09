@@ -4,10 +4,11 @@
 
 <div class="list">
 
-  <table style="width:50%">
+  <table style="width:80%">
     <tr>
       <th></th>
       <th>Guide Book Area</th>
+      <th></th>
       <th></th>
     </tr>
     <% for book in @books do %>
@@ -17,6 +18,8 @@
       <td><form class="delete_button" action="/books/<%= book.id %>/delete" method="POST">
         <input type="submit" value="Delete">
       </form></td>
+      <td> <h2> <a href="/books/<%= book.id %>/crags">Show all crags in this guide</a> </h2>
+      </td>
     </tr>
     <% end %>
   </table>
