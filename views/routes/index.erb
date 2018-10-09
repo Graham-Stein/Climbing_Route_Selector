@@ -4,23 +4,23 @@
 
 <table style="width:100%">
   <tr>
+    <th></th>
     <th>Route Name</th>
     <th>Length</th>
     <th>Grade</th>
-    <th>Edit</th>
-    <th>Delete</th>
     <th>Crag</th>
+    <th></th>
   </tr>
   <% for route in @routes do %>
   <tr>
+    <td><a href="/routes/<%= route.id %>/edit">Edit</a> </td>
     <td><%= route.route_name %></td>
     <td><%= route.length %>m</td>
     <td><%= route.grade %></td>
-    <td><a href="/routes/<%= route.id %>/edit">Edit</a> </td>
+    <td><td><%= Crag.find(route.crag_id).crag_name %></td></td>
     <td><form class="delete_button" action="/routes/<%= route.id %>/delete" method="POST">
       <input type="submit" value="Delete">
     </form></td>
-    <td><td><%= Crag.find(route.crag_id).crag_name %></td></td>
   </tr>
   <% end %>
 </table>

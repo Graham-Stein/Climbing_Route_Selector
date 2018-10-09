@@ -1,19 +1,36 @@
 <p> All Crags </p>
 
-<% for crag in @crags do %>
+
 
 <div class="crag_list"><br>
 
-<p> <%= crag.crag_name %> </p>
-<p> <a href="/crags/<%= crag.id %>">View Routes on this Crag </a> </p>
-<p> <a href="/crags/<%= crag.id %>/edit">Edit this Crag </a> </p>
+  <table style="width:100%">
+    <tr>
+      <th></th>
+      <th>Crag Name</th>
+      <th>Elevation</th>
+      <th>Aspect</th>
+      <th>Crag</th>
+      <th></th>
+    </tr>
+    <% for crag in @crags do %>
+    <tr>
+      <td><a href="/crags/<%= crag.id %>/edit">Edit</a> </td>
+      <td><%= crag.crag_name %></td>
+      <td><%= crag.elevation %>m</td>
+      <td><%= crag.aspect %></td>
+      <td><%= Book.find(crag.book_id).area %></td>
+      <td><form class="delete_button" action="/crags/<%= crag.id %>/delete" method="POST">
+        <input type="submit" value="Delete">
+      </form></td>
+    </tr>
+    <% end %>
+  </table>
 
-<form class="delete_button" action="/crags/<%= crag.id %>/delete" method="POST">
-  <input type="submit" value="Delete">
-</form>
+  </div>
 
-</div><br>
 
-<% end %>
+</div><hr>
+
 
 <h2> <a href="/crags/new">Add a new Crag</a> </h2>
