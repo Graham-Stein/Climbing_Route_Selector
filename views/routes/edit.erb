@@ -5,13 +5,13 @@
 
     <div class="form-el">
       <label for="route_name">Route:</label>
-      <input type="text" name="route_name" id="route_name" />
+      <input type="text" name="route_name" id="route_name" value="<%= @route.route_name %>" />
       <label for="summer_gade">Summer Grade:</label>
-      <input type="text" name="summer_grade" id="summer_gade" />
+      <input type="text" name="summer_grade" id="summer_grade" value="<%= @route.summer_grade %>"/>
       <label for="winter_grade">Winter Grade:</label>
-      <input type="text" name="winter_grade" id="winter_grade" />
+      <input type="text" name="winter_grade" id="winter_grade" value="<%= @route.winter_grade %>"/>
       <label for="length">Length:</label>
-      <input type="number" name="length" id="length" />
+      <input type="number" name="length" id="length" value="<%= @route.length %>"/>
 
       <label for="crag_id"></label>
       <input type="number" name="crag_id" id="crag_id" value="<%= @route.crag_id %>" hidden/>

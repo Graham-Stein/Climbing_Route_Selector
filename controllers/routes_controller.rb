@@ -21,9 +21,8 @@ post ('/routes/') do
 end
 
 
-########### STUCK AT THIS POINT
-get ('routes/:id/edit')do
-binding.pry
+
+get ('/routes/:id/edit')do
   @route = Route.find(params[:id])
   erb(:"routes/edit")
 end
