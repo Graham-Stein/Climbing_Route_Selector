@@ -1,19 +1,29 @@
 <p> All Routes </p>
 
-<% for route in @routes do %>
-
 <div class="route_list">
 
-<p> <%= route.route_name %> is a <%= route.length %>m long <%= route.grade %></p>
-<p> <a href="/routes/<%= route.id %>/edit">Edit this Route </a> </p>
-
-<form class="delete_button" action="/routes/<%= route.id %>/delete" method="POST">
-  <input type="submit" value="Delete">
-</form>
+<table style="width:100%">
+  <tr>
+    <th>Route Name</th>
+    <th>Length</th>
+    <th>Grade</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <% for route in @routes do %>
+  <tr>
+    <td><%= route.route_name %></td>
+    <td><%= route.length %>m</td>
+    <td><%= route.grade %></td>
+    <td><a href="/routes/<%= route.id %>/edit">Edit</a> </td>
+    <td><form class="delete_button" action="/routes/<%= route.id %>/delete" method="POST">
+      <input type="submit" value="Delete">
+    </form></td>
+  </tr>
+  <% end %>
+</table>
 
 </div>
 
-<% end %><hr>
-
-
+<hr>
 <h2> <a href="/routes/new">Add a new Route</a> </h2><br>
