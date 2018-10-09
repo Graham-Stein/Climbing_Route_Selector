@@ -7,9 +7,8 @@ body {
 }
 
 
- nav li{
-  display: inline-block;
-
+.main_nav li{
+ display: inline-block;
 }
 
 table {

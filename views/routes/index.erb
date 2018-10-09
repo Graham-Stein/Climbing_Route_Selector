@@ -17,7 +17,7 @@
     <td><%= route.route_name %></td>
     <td><%= route.length %>m</td>
     <td><%= route.grade %></td>
-    <td><%= Crag.find(route.crag_id).crag_name %></td>
+    <td><%= route.crag.crag_name %></td>
     <td><form class="delete_button" action="/routes/<%= route.id %>/delete" method="POST">
       <input type="submit" value="Delete">
     </form></td>

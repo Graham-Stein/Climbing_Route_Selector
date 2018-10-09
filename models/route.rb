@@ -16,6 +16,14 @@ class Route
 
   end
 
+  def crag()
+    sql = "SELECT * FROM crags where id = $1"
+    values = [@crag_id]
+    crag = SqlRunner.run(sql, values)
+    result = Crag.new(crag[0])
+    return result
+  end
+
   def save()
     sql = "INSERT INTO routes (
     route_name,

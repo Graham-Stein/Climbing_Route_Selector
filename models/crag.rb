@@ -45,6 +45,10 @@ class Crag
     values = [id]
     crags = SqlRunner.run(sql, values)
     result = crags.map { |crag|  Crag.new(crag) }
+
+
+
+
     return result
   end
 
