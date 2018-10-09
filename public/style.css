@@ -1,14 +1,52 @@
 body {
   background-color: #4c9ed9;
-  font-family: Lucida Console;
+  font-family: Verdana, Geneva, sans-serif;
   /* background-image: url('labyrinth.jpg'); */
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.6) 100%), url('labyrinth.jpg');
   background-size: cover;
 }
 
 
+.main_nav ul {
+    list-style-type: none;
+    width: 500px;
+    /* background-color:#d0b1a2; */
+}
+
 .main_nav li{
- display: inline-block;
+  margin: 15px;
+  padding: 15px;
+  font-size: 25px;
+  color: black;
+  display: inline-block;
+  background-color: #d0b1a2;
+  border: 15px;
+  border-color: blue;
+  border-width: medium;
+  border-style: ridge;
+  border-radius: 20px;
+
+
+}
+
+/* unvisited link */
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+}
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
 }
 
 table {
@@ -22,6 +60,7 @@ table, th, td {
 th {
     text-align: center;
     background-color: #80d4ff;
+    font-weight: bold;
 }
 
 td {
