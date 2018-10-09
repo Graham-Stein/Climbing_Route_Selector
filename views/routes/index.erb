@@ -9,6 +9,7 @@
     <th>Grade</th>
     <th>Edit</th>
     <th>Delete</th>
+    <th>Crag</th>
   </tr>
   <% for route in @routes do %>
   <tr>
@@ -19,6 +20,7 @@
     <td><form class="delete_button" action="/routes/<%= route.id %>/delete" method="POST">
       <input type="submit" value="Delete">
     </form></td>
+    <td><td><%= Crag.find(route.crag_id).crag_name %></td></td>
   </tr>
   <% end %>
 </table>
