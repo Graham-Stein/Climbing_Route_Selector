@@ -1,19 +1,29 @@
 <p> All Guide Books by area </p><br>
 
-<% for book in @books do %>
+
 
 <div class="book_list">
 
-<p> <%= book.area %> Guidebook</p>
-<p> <a href="/books/<%= book.id %>">View Crags in this Guide </a> </p>
-<h2> <a href="/books/<%= book.id %>/edit">Edit this Guide Book</a> </h2>
+  <table style="width:50%">
+    <tr>
+      <th></th>
+      <th>Guide Book Area</th>
+      <th></th>
+    </tr>
+    <% for book in @books do %>
+    <tr>
+      <td><h2> <a href="/books/<%= book.id %>/edit">Edit</a> </h2></td>
+      <td><%= book.area %></td>
+      <td><form class="delete_button" action="/books/<%= book.id %>/delete" method="POST">
+        <input type="submit" value="Delete">
+      </form></td>
+    </tr>
+    <% end %>
+  </table>
 
-<form class="delete_button" action="/books/<%= book.id %>/delete" method="POST">
-  <input type="submit" value="Delete">
-</form>
+  </div>
 
 </div><hr>
 
-<% end %>
 
 <h2> <a href="/books/new">Add a new Guide Book</a> </h2>
