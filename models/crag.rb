@@ -15,6 +15,14 @@ class Crag
 
   end
 
+  def book()
+    sql = "SELECT * FROM books where id = $1"
+    values = [@book_id]
+    book = SqlRunner.run(sql, values)
+    result = Book.new(book[0])
+    return result
+  end
+
   def save()
     sql = "INSERT INTO crags(
     crag_name,
@@ -45,10 +53,6 @@ class Crag
     values = [id]
     crags = SqlRunner.run(sql, values)
     result = crags.map { |crag|  Crag.new(crag) }
-
-
-
-
     return result
   end
 

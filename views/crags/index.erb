@@ -19,7 +19,7 @@
       <td><%= crag.crag_name %></td>
       <td><%= crag.elevation %>m</td>
       <td><%= crag.aspect %></td>
-      <td><%= Book.find(crag.book_id).area %></td>
+      <td><%= crag.book.area %></td>
       <td><form class="delete_button" action="/crags/<%= crag.id %>/delete" method="POST">
         <input type="submit" value="Delete">
       </form></td>
