@@ -3,12 +3,22 @@ require( 'sinatra/contrib/all' )
 require( 'pry-byebug' )
 require('pry')
 require_relative( '../models/crag.rb' )
+require_relative( '../models/route.rb' )
 also_reload( '../models/*' )
 
 get ('/crags') do
   @crags = Crag.all()
   erb(:"crags/index")
 end
+
+#########################
+
+get ('/crags/:id/routes') do
+  @routes = Route.all_on_crag(params[:id])
+  erb(:"routes/index")
+end
+
+##############################
 
 get ('/crags/new') do
   @books = Book.all()

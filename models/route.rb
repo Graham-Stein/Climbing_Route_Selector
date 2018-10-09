@@ -48,6 +48,19 @@ class Route
     return result
   end
 
+
+#########################################
+
+  def self.all_on_crag(id)
+    sql = "SELECT * FROM routes WHERE crag_id = $1;"
+    values = [id]
+    routes = SqlRunner.run(sql, values)
+    result = routes.map { |route|  Route.new(route) }
+    return result
+  end
+
+#########################################
+
   def self.find(id)
     sql = "SELECT * FROM routes
     WHERE id = $1;"

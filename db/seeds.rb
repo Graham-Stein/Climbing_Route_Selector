@@ -123,6 +123,7 @@ options = {
 
     check = Crag.all_in_book(book1.id)
 
+    check2 = Route.all_on_crag(crag1.id)
 
     # Book.find(8)
     # binding.pry
