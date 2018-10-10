@@ -74,6 +74,37 @@ class Route
     return result
   end
 
+  def self.filter_routes_sql(filters)
+    ## where filters is an array of filter items
+    # that are column titles in the DB
+    # method will take the filters items and add
+    # these to a sql statement WHERE xxxx LIKE $1
+    # AND yyyy LIKE $2 etc. (wildcards in 'values')
+    sql = "SELECT * FROM routes"
+    added_sql = ""
+    count = 0
+    filters.each do |filter|
+      count += 1
+      if count == 1
+      added_sql += " WHERE #{filter} LIKE $#{count} AND"
+      else
+      added_sql += " #{filter} LIKE $#{count} AND"
+      end
+    end
+    added_sql = added_sql[0...-4]
+    sql += added_sql + ";"
+    return sql
+  end
+
+  def self.filter_routes_values(filters)
+    #(wildcards in 'values')
+    values = ""
+    filters.each { |filter| values += "%#{filter}%, " }
+    values = values[0...-2]
+    return values
+  end
+
+
   def update()
     sql = "UPDATE routes
     SET (
