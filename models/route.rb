@@ -76,10 +76,10 @@ class Route
 
   def self.filter(sql, values)
     routes = SqlRunner.run(sql, values)
-    binding.pry
+    # binding.pry
     # result = Route.new(route[0])
     result = routes.map { |route|  Route.new(route) }
-    binding.pry
+    # binding.pry
     return result
   end
 
@@ -96,9 +96,11 @@ class Route
       # binding.pry
       count += 1
       if count == 1
-      added_sql += " WHERE #{filter[0]} = $#{count} AND"
+        added_sql += " WHERE #{filter[0]} > $#{count} AND"
+      elsif count == 2
+        added_sql += " #{filter[0]} LIKE $#{count} AND"
       else
-      added_sql += " #{filter[0]} = $#{count} AND"
+        added_sql += " #{filter[0]} = $#{count} AND"
       end
       # binding.pry
     end
@@ -108,10 +110,21 @@ class Route
   end
 
   def self.filter_routes_values(filters)
-    # (wildcards in 'values')
     values = []
-    filters.each { |filter| values.push("#{filter[1]}") }
-    # values = values[0...-2]
+    count = 0
+    filters.each do |filter|
+      count += 1
+      binding.pry
+      if count == 1
+        values.push("#{filter[1]}")
+      elsif count == 2
+        values.push("%#{filter[1]}%")
+      else
+        values.push("#{filter[1]}")
+      end
+      binding.pry
+
+    end
     return values
   end
 
