@@ -75,11 +75,12 @@ class Route
   end
 
   def self.filter(sql, values)
+    binding.pry
     routes = SqlRunner.run(sql, values)
-    # binding.pry
+    binding.pry
     # result = Route.new(route[0])
     result = routes.map { |route|  Route.new(route) }
-    # binding.pry
+    binding.pry
     return result
   end
 
@@ -88,7 +89,7 @@ class Route
     # that are column titles in the DB
     # method will take the filters items and add
     # these to a sql statement WHERE xxxx LIKE $1
-    # AND yyyy LIKE $2 etc. (wildcards in 'values')
+    # AND yyyy LIKE $2 etc.
     sql = "SELECT * FROM routes"
     added_sql = ""
     count = 0
@@ -97,10 +98,10 @@ class Route
       count += 1
       if count == 1
         added_sql += " WHERE #{filter[0]} > $#{count} AND"
-      elsif count == 2
-        added_sql += " #{filter[0]} LIKE $#{count} AND"
-      else
+      elsif filter[1].scan(/\D/).empty?
         added_sql += " #{filter[0]} = $#{count} AND"
+      else
+        added_sql += " #{filter[0]} LIKE $#{count} AND"
       end
       # binding.pry
     end
@@ -110,19 +111,18 @@ class Route
   end
 
   def self.filter_routes_values(filters)
+  #  (wildcards in 'values')
     values = []
     count = 0
     filters.each do |filter|
       count += 1
       binding.pry
-      if count == 1
+      if filter[1].scan(/\D/).empty?
         values.push("#{filter[1]}")
-      elsif count == 2
-        values.push("%#{filter[1]}%")
       else
-        values.push("#{filter[1]}")
+        values.push("%#{filter[1]}%")
       end
-      binding.pry
+      # binding.pry
 
     end
     return values
