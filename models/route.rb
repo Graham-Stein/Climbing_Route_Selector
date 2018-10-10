@@ -51,8 +51,9 @@ class Route
   def self.all_on_crag(id)
     sql = "SELECT * FROM routes WHERE crag_id = $1;"
     values = [id]
-    routes = SqlRunner.run(sql, values)
-    result = routes.map { |route|  Route.new(route) }
+    result = Route.filter(sql, values)
+    # routes = SqlRunner.run(sql, values)
+    # result = routes.map { |route|  Route.new(route) }
     return result
   end
 
@@ -69,18 +70,15 @@ class Route
     sql = "SELECT * FROM routes
     WHERE route_name LIKE $1;"
     values = ['%' + name.to_s + '%']
-    routes = SqlRunner.run(sql, values)
-    result = routes.map { |route|  Route.new(route) }
+    result = Route.filter(sql, values)
+    # routes = SqlRunner.run(sql, values)
+    # result = routes.map { |route|  Route.new(route) }
     return result
   end
 
   def self.filter(sql, values)
-    binding.pry
     routes = SqlRunner.run(sql, values)
-    binding.pry
-    # result = Route.new(route[0])
     result = routes.map { |route|  Route.new(route) }
-    binding.pry
     return result
   end
 
@@ -94,7 +92,6 @@ class Route
     added_sql = ""
     count = 0
     filters.each do |filter|
-      # binding.pry
       count += 1
       if count == 1
         added_sql += " WHERE #{filter[0]} > $#{count} AND"
@@ -103,7 +100,6 @@ class Route
       else
         added_sql += " #{filter[0]} LIKE $#{count} AND"
       end
-      # binding.pry
     end
     added_sql = added_sql[0...-4]
     sql += added_sql + ";"
@@ -116,14 +112,11 @@ class Route
     count = 0
     filters.each do |filter|
       count += 1
-      binding.pry
       if filter[1].scan(/\D/).empty?
         values.push("#{filter[1]}")
       else
         values.push("%#{filter[1]}%")
       end
-      # binding.pry
-
     end
     return values
   end
