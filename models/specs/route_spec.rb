@@ -58,13 +58,13 @@ class TestRoute < MiniTest::Test
   end
 
   def test_filter_routes_sql
-    arr_test = ['route_name', 'length']
-    assert_equal("SELECT * FROM routes WHERE route_name LIKE $1 AND length LIKE $2;", Route.filter_routes_sql(arr_test) )
+    arr_test = {"altitude"=>"900", "summer_grade"=>"VS"}
+    assert_equal("SELECT * FROM routes WHERE altitude LIKE $1 AND summer_grade LIKE $2;", Route.filter_routes_sql(arr_test) )
   end
 
   def test_filter_routes_values
-    arr_test = ['route_name', 'length']
-    assert_equal('%route_name%, %length%', Route.filter_routes_values(arr_test))
+    arr_test = {"altitude"=>"900", "summer_grade"=>"VS"}
+    assert_equal('%900%, %VS%', Route.filter_routes_values(arr_test))
   end
 
 end

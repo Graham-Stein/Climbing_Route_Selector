@@ -10,6 +10,18 @@ get ('/routes') do
   erb(:"routes/index")
 end
 
+get ('/routes/filter') do
+  binding.pry
+  sql = Route.filter_routes_sql(params)
+  binding.pry
+  values = Route.filter_routes_values(params)
+  binding.pry
+  @routes = Route.filter(sql, values)
+  binding.pry
+  erb(:"routes/index")
+
+end
+
 
 get ('/routes/new') do
   @crags = Crag.all()

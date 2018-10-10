@@ -41,6 +41,22 @@
     </div>
     </form>
 
+    <form  action="/routes/filter" method="get">
+    <div class="form-wrapper">
+      <div class="form-el">
+        <label for="length"> Length :</label>
+        <input type="number" name="length" id="length" />
+      </div>
+      <div class="form-el">
+        <label for="summer_grade"> Summer Grade :</label>
+        <input type="text" name="summer_grade" id="summer_grade" />
+      </div>
+      <div class="form-el">
+        <input type="submit" value="Filter"/>
+      </div><br>
+    </div>
+    </form>
+
     <main>
       <%= yield %>
     </main>
