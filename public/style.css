@@ -71,6 +71,10 @@ tr:nth-child(odd) {background-color: #e6ffff;}
 tr:nth-child(even) {background-color: #e6f7ff;}
 
 
+/* .form-wrapper .form-el {
+  display: inline;
+} */
+
 .list {
 
 }

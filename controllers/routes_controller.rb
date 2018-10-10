@@ -10,6 +10,11 @@ get ('/routes') do
   erb(:"routes/index")
 end
 
+get ('/routes/:id') do
+  binding.pry
+  "Testing 123"
+end
+
 get ('/routes/new') do
   @crags = Crag.all()
   erb(:"routes/new")
@@ -19,8 +24,6 @@ post ('/routes/') do
   Route.new(params).save
   redirect to '/routes'
 end
-
-
 
 get ('/routes/:id/edit')do
   @route = Route.find(params[:id])
