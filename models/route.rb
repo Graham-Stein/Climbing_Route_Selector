@@ -69,7 +69,7 @@ class Route
     sql = "SELECT * FROM routes
     WHERE route_name LIKE $1;"
     # binding.pry
-    values = [name.to_s + '%']
+    values = ['%' + name.to_s + '%']
     # binding.pry
     routes = SqlRunner.run(sql, values)
     result = routes.map { |route|  Route.new(route) }

@@ -10,10 +10,6 @@ get ('/routes') do
   erb(:"routes/index")
 end
 
-get ('/routes/:id') do
-  @routes = Route.find_route_name(params[:route_name])
-  erb(:"routes/index")
-end
 
 get ('/routes/new') do
   @crags = Crag.all()
@@ -39,4 +35,10 @@ post ('/routes/:id/delete') do
   route = Route.find(params[:id])
   route.delete()
   redirect to '/routes'
+end
+
+#############POSITION OF THIS MATTERS!!!#########
+get ('/routes/:id') do
+  @routes = Route.find_route_name(params[:route_name])
+  erb(:"routes/index")
 end
