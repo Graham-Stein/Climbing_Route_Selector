@@ -11,9 +11,7 @@ get ('/routes') do
 end
 
 get ('/routes/:id') do
-  binding.pry
   @routes = Route.find_route_name(params[:route_name])
-  binding.pry
   erb(:"routes/index")
 end
 
