@@ -68,13 +68,9 @@ class Route
   def self.find_route_name(name)
     sql = "SELECT * FROM routes
     WHERE route_name LIKE $1;"
-    # binding.pry
     values = ['%' + name.to_s + '%']
-    # binding.pry
     routes = SqlRunner.run(sql, values)
     result = routes.map { |route|  Route.new(route) }
-    # result = Route.new(route[0])
-    # binding.pry
     return result
   end
 
