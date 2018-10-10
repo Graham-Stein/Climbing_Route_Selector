@@ -80,6 +80,26 @@ options = {
     route2.save
 
   options = {
+    "route_name" => "The Bullroar",
+    "summer_grade" => "HVS",
+    "winter_grade" => nil,
+    "length" => 285,
+    "crag_id" => crag1.id
+    }
+    route7 = Route.new(options)
+    route7.save
+
+  options = {
+    "route_name" => "Torro",
+    "summer_grade" => "E2",
+    "winter_grade" => nil,
+    "length" => 215,
+    "crag_id" => crag1.id
+    }
+    route8 = Route.new(options)
+    route8.save
+
+  options = {
     "route_name" => "Rhyme of the Ancient Mariner",
     "summer_grade" => nil,
     "winter_grade" => "VII, 7",
