@@ -88,7 +88,7 @@ class Route
     # method will take the filters items and add
     # these to a sql statement WHERE xxxx LIKE $1
     # AND yyyy LIKE $2 etc.
-    sql = "SELECT * FROM routes"
+    sql = "SELECT * FROM routes INNER JOIN crags ON routes.crag_id = crags.id"
     added_sql = ""
     count = 0
     filters.each do |filter|
@@ -96,7 +96,7 @@ class Route
       if count == 1
         added_sql += " WHERE #{filter[0]} > $#{count} AND"
       elsif filter[1].scan(/\D/).empty?
-        added_sql += " #{filter[0]} = $#{count} AND"
+        added_sql += " #{filter[0]} > $#{count} AND"
       else
         added_sql += " #{filter[0]} LIKE $#{count} AND"
       end
@@ -105,6 +105,11 @@ class Route
     sql += added_sql + ";"
     return sql
   end
+
+#   SELECT * FROM routes
+# INNER JOIN crags
+# ON routes.crag_id = crags.id
+# WHERE length > 0 AND summer_grade LIKE '%HVS%' AND elevation >0;
 
   def self.filter_routes_values(filters)
   #  (wildcards in 'values')
