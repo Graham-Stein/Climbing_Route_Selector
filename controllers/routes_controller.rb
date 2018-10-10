@@ -12,7 +12,9 @@ end
 
 get ('/routes/:id') do
   binding.pry
-  "Testing 123"
+  @routes = Route.find_route_name(params[:route_name])
+  binding.pry
+  erb(:"routes/index")
 end
 
 get ('/routes/new') do
