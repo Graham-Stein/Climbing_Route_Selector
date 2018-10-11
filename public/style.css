@@ -25,15 +25,10 @@ body {
   border-width: medium;
   border-style: ridge;
   border-radius: 20px;
+
+
 }
 
-.minor_nav li{
-  display: inline-block;
-}
-
-.form-wrapper {
-  display: inline-block;
-}
 /* unvisited link */
 
 a:link {
@@ -83,3 +78,17 @@ tr:nth-child(even) {background-color: #e6f7ff;}
 .list {
 
 }
+
+
+
+/* forms */
+
+/* text layout
+
+/* tables
+
+
+/*topnav
+
+
+/* controls

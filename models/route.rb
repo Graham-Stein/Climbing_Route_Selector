@@ -11,8 +11,8 @@ class Route
     @route_name = options['route_name']
     @summer_grade = options['summer_grade']
     @winter_grade = options['winter_grade']
-    @length = options['length'].to_i
     @crag_id = options['crag_id'].to_i
+    @length = options['length'].to_i
 
   end
 
