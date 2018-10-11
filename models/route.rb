@@ -68,7 +68,7 @@ class Route
 
   def self.find_route_name(name)
     sql = "SELECT * FROM routes
-    WHERE route_name LIKE $1;"
+    WHERE route_name ILIKE $1;"
     values = ['%' + name.to_s + '%']
     result = Route.filter(sql, values)
     # routes = SqlRunner.run(sql, values)
@@ -98,12 +98,12 @@ class Route
         added_sql += " WHERE #{filter[0]} > $#{count} AND"
       elsif filter[1] == ""
         next
-      elsif filter[1].scan(/\D/).empty?
+      elsif filter[1].scan(/\D/).empty? # is a number
         count += 1
         added_sql += " #{filter[0]} > $#{count} AND"
       else
         count += 1
-        added_sql += " #{filter[0]} LIKE $#{count} AND"
+        added_sql += " #{filter[0]} ILIKE $#{count} AND"
       end
     end
     added_sql = added_sql[0...-4]
@@ -111,13 +111,10 @@ class Route
     return sql
   end
 
-#   SELECT * FROM routes
-# INNER JOIN crags
-# ON routes.crag_id = crags.id
-# WHERE length > 0 AND summer_grade LIKE '%HVS%' AND elevation >0;
-
   def self.filter_routes_values(filters)
-  #  (wildcards in 'values')
+  #  Produce the values from the params hash to match the entries in
+  # the slots of the prepared statement
+  # (wildcards in 'values' where the input is text not purely numbers)
     values = []
     count = 0
     filters.each do |filter|

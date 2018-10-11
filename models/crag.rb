@@ -67,7 +67,7 @@ class Crag
 
   def self.find_crag_name(name)
     sql = "SELECT * FROM crags
-    WHERE crag_name LIKE $1;"
+    WHERE crag_name ILIKE $1;"
     values = ['%' + name.to_s + '%']
     # result = Route.filter(sql, values)
     crags = SqlRunner.run(sql, values)

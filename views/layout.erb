@@ -27,31 +27,39 @@
         </li>
         </ul>
       </nav>
+
+
+      <div class="main_nav">
+
+        <form  action="/routes/:id" method="get">
+        <div class="form-wrapper">
+          <div class="form-el">
+            <label for="route_name">Search for route:</label>
+            <input type="text" name="route_name" id="route_name" />
+          </div>
+          <div class="form-el">
+            <input type="submit" value="Search"/>
+          </div><br>
+        </div>
+        </form>
+
+        <form  action="/crags/:id" method="get">
+        <div class="form-wrapper">
+          <div class="form-el">
+            <label for="crag_name">Search for crag:</label>
+            <input type="text" name="crag_name" id="crag_name" />
+          </div>
+          <div class="form-el">
+            <input type="submit" value="Search"/>
+          </div><br>
+        </div>
+        </form>
+
+      </div>
+
     </header><hr>
 
-    <form  action="/routes/:id" method="get">
-    <div class="form-wrapper">
-      <div class="form-el">
-        <label for="route_name">Search for route:</label>
-        <input type="text" name="route_name" id="route_name" />
-      </div>
-      <div class="form-el">
-        <input type="submit" value="Search"/>
-      </div><br>
-    </div>
-    </form>
 
-    <form  action="/crags/:id" method="get">
-    <div class="form-wrapper">
-      <div class="form-el">
-        <label for="crag_name">Search for crag:</label>
-        <input type="text" name="crag_name" id="crag_name" />
-      </div>
-      <div class="form-el">
-        <input type="submit" value="Search"/>
-      </div><br>
-    </div>
-    </form>
 
     <form  action="/routes/filter" method="get">
     <div class="form-wrapper">
@@ -61,7 +69,7 @@
       </div>
       <div class="form-el">
         <label for="elevation"> Routes above this elevation :</label>
-        <input type="number" name="elevation" id="elevation" value="0"/>
+        <input type="number" name="elevation" id="elevation"/>
       </div>
       <div class="form-el">
         <label for="aspect"> Routes within 45 Degrees of this aspect :</label>

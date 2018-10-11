@@ -19,9 +19,7 @@ get ('/routes/filter') do
   @routes = Route.filter(sql, values)
   # binding.pry
   erb(:"routes/index")
-
 end
-
 
 get ('/routes/new') do
   @crags = Crag.all()
