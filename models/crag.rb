@@ -65,6 +65,16 @@ class Crag
     return result
   end
 
+  def self.find_crag_name(name)
+    sql = "SELECT * FROM crags
+    WHERE crag_name LIKE $1;"
+    values = ['%' + name.to_s + '%']
+    # result = Route.filter(sql, values)
+    crags = SqlRunner.run(sql, values)
+    result = crags.map { |crag|  Crag.new(crag) }
+    return result
+  end
+
   def update()
     sql = "UPDATE crags
     SET
