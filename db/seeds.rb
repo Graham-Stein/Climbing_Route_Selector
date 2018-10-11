@@ -60,7 +60,7 @@ options = {
   "crag_name" => "Etive Slabs",
   "elevation" => 300,
   "aspect" => "ESE",
-  "book_id" => book4.id
+  "book_id" => book3.id
   }
   crag4 = Crag.new(options)
   crag4.save

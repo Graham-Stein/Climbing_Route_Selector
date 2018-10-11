@@ -30,8 +30,24 @@ input[type="submit" i] {
 .intro {
   font-size: 30px;
   text-align: center;
-background-color: #cceeff;
+  background-color: #cceeff;
 
+}
+
+a:link .add-new {
+  background-color: #cceeff;
+  /* align items: center;
+  margin: 15px;
+  padding: 15px;
+  font-size: 25px;
+  color: black;
+  display: inline-block;
+  background-color: #cceeff;
+  border: 15px;
+  border-color: #0099e6;
+  border-width: medium;
+  border-style: ridge;
+  border-radius: 20px; */
 }
 
 .main_nav {
@@ -105,6 +121,7 @@ background-color: #cceeff;
 a:link {
     text-decoration: none;
     color: black;
+    /* background-color: #cceeff; */
 }
 
 a:visited {
