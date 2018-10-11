@@ -9,14 +9,12 @@ get ('/crags') do
   @crags = Crag.all()
   erb(:"crags/index")
 end
-#########################
+
 get ('/crags/:id/routes') do
-  # binding.pry
   @routes = Route.all_on_crag(params[:id])
-  # binding.pry
   erb(:"routes/index")
 end
-################################
+
 get ('/crags/new') do
   @books = Book.all()
   erb(:"crags/new")

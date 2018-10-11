@@ -92,12 +92,17 @@ class Route
     added_sql = ""
     count = 0
     filters.each do |filter|
-      count += 1
-      if count == 1
+
+      if count == 0
+        count += 1
         added_sql += " WHERE #{filter[0]} > $#{count} AND"
+      elsif filter[1] == ""
+        next
       elsif filter[1].scan(/\D/).empty?
+        count += 1
         added_sql += " #{filter[0]} > $#{count} AND"
       else
+        count += 1
         added_sql += " #{filter[0]} LIKE $#{count} AND"
       end
     end
@@ -117,7 +122,9 @@ class Route
     count = 0
     filters.each do |filter|
       count += 1
-      if filter[1].scan(/\D/).empty?
+      if filter[1] == ""
+        next
+      elsif filter[1].scan(/\D/).empty?
         values.push("#{filter[1]}")
       else
         values.push("%#{filter[1]}%")
