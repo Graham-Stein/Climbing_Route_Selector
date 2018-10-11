@@ -11,13 +11,13 @@ get ('/routes') do
 end
 
 get ('/routes/filter') do
-  binding.pry
+  # binding.pry
   sql = Route.filter_routes_sql(params)
-  binding.pry
+  # binding.pry
   values = Route.filter_routes_values(params)
-  binding.pry
+  # binding.pry
   @routes = Route.filter(sql, values)
-  binding.pry
+  # binding.pry
   erb(:"routes/index")
 
 end
