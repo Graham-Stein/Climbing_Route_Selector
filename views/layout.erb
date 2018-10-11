@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="/style.css">
   </head>
 
-<div class="">
-
-</div>
-
   <body>
 
-    <header class="main_nav">
-      <nav>
+    <header>
+      <div>
+
+      <nav class="main_nav">
         <ul>
           <li>
             <a href="/books"> Books </a>
@@ -24,38 +22,42 @@
           </li>
           <li>
           <a href="/routes"> Routes </a>
-        </li>
+          </li>
         </ul>
+
       </nav>
-
-
-      <div class="main_nav">
-
-        <form  action="/routes/:id" method="get">
-        <div class="form-wrapper">
-          <div class="form-el">
-            <label for="route_name">Search for route:</label>
-            <input type="text" name="route_name" id="route_name" />
-          </div>
-          <div class="form-el">
-            <input type="submit" value="Search"/>
-          </div><br>
-        </div>
-        </form>
-
-        <form  action="/crags/:id" method="get">
-        <div class="form-wrapper">
-          <div class="form-el">
-            <label for="crag_name">Search for crag:</label>
-            <input type="text" name="crag_name" id="crag_name" />
-          </div>
-          <div class="form-el">
-            <input type="submit" value="Search"/>
-          </div><br>
-        </div>
-        </form>
-
       </div>
+
+        <nav class="minor_nav">
+          <ul>
+            <li><form  action="/routes/:id" method="get">
+            <div class="form-wrapper">
+              <div class="form-el">
+                <label for="route_name"></label>
+                <input type="text" name="route_name" id="route_name" />
+              </div>
+              <div class="form-el">
+                <input type="submit" value="Search for route"/>
+              </div><br>
+            </div>
+            </form></li>
+
+            <li><form  action="/crags/:id" method="get">
+            <div class="form-wrapper">
+              <div class="form-el">
+                <label for="crag_name"></label>
+                <input type="text" name="crag_name" id="crag_name" />
+              </div>
+              <div class="form-el">
+                <input type="submit" value="Search for crag"/>
+              </div><br>
+            </div>
+            </form></li>
+          </ul>
+        </nav>
+
+
+
 
     </header><hr>
 
@@ -69,19 +71,19 @@
       </div>
       <div class="form-el">
         <label for="elevation"> Routes above this elevation :</label>
-        <input type="number" name="elevation" id="elevation"/>
+        <input type="number" name="elevation" id="elevation" placeholder="Elevation in metres"/>
       </div>
       <div class="form-el">
         <label for="aspect"> Routes within 45 Degrees of this aspect :</label>
-        <input type="text" name="aspect" id="aspect"/>
+        <input type="text" name="aspect" id="aspect" placeholder="N / S / E / W"/>
       </div>
       <div class="form-el">
         <label for="summer_grade"> Summer Grade :</label>
-        <input type="text" name="summer_grade" id="summer_grade" />
+        <input type="text" name="summer_grade" id="summer_grade" placeholder="eg HVS 5a"/>
       </div>
       <div class="form-el">
         <label for="winter_grade"> Winter Grade :</label>
-        <input type="text" name="winter_grade" id="winter_grade" />
+        <input type="text" name="winter_grade" id="winter_grade" placeholder="eg VI 5" />
       </div>
       <div class="form-el">
         <input type="submit" value="Filter"/>
