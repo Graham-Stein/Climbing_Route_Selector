@@ -10,47 +10,35 @@
   <body>
 
     <header>
-      <div class="main_nav">
-        <nav >
-            <ul>
-            <li><a href="/books"> Books </a></li>
-            <li><a href="/crags"> Crags </a></li>
-            <li><a href="/routes"> Routes </a></li>
-            </ul>
-        </nav>
-    </div>
+        <nav class="main_nav">
+          <div class="mn-1"><a href="/books"> Books </a></div>
+          <div class="mn-1"><a href="/crags"> Crags </a></div>
+          <div class="mn-1"><a href="/routes"> Routes </a></div>
 
-        <nav class="minor_nav">
-          <ul>
-            <li><form  action="/routes/:id" method="get">
-            <div class="form-wrapper">
-              <div class="form-el">
+          <div class="mn-2"><form  action="/routes/:id" method="get">
+
                 <label for="route_name"></label>
                 <input type="text" name="route_name" id="route_name" placeholder="Insert route name"/>
-              </div>
               <div class="form-el">
                 <input type="submit" value="Search for route"/>
               </div><br>
+
+              </form>
+          </div>
+          <div class="mn-2"><form  action="/crags/:id" method="get">
+            <div class="form-el">
+              <label for="crag_name"></label>
+              <input type="text" name="crag_name" id="crag_name" placeholder="Insert crag name"/>
             </div>
-            </form></li>
-
-            <li><form  action="/crags/:id" method="get">
-            <div class="form-wrapper">
-              <div class="form-el">
-                <label for="crag_name"></label>
-                <input type="text" name="crag_name" id="crag_name" placeholder="Insert crag name"/>
-              </div>
-              <div class="form-el">
-                <input type="submit" value="Search for crag"/>
-              </div><br>
-            </div>
-            </form></li>
-          </ul>
-        </nav>
-
-
+            <div class="form-el">
+              <input type="submit" value="Search for crag"/>
+            </div><br>
+            </form>
+          </div>
 
     </header><hr>
+
+<div class="main_filter">
 
 
 
@@ -76,11 +64,15 @@
         <label for="winter_grade"> Winter Grade :</label>
         <input type="text" name="winter_grade" id="winter_grade" placeholder="eg VI 5" />
       </div>
-      <div class="form-el">
+      <div class="form-sub">
         <input type="submit" value="Filter"/>
       </div><br>
     </div>
     </form>
+
+
+</div>
+
 
     <main>
       <%= yield %>

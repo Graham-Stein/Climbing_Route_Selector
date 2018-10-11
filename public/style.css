@@ -1,34 +1,105 @@
+
+/* *, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+} */
+
 body {
-  background-color: #4c9ed9;
+  /* background-color: #4c9ed9; */
   font-family: Verdana, Geneva, sans-serif;
   /* background-image: url('labyrinth.jpg'); */
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.6) 100%), url('labyrinth.jpg');
   background-size: cover;
 }
 
+input[type="submit" i] {
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-width: 1px;
+  padding: 1px 7px 2px;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  background-color: buttonface;
+  box-sizing: border-box;}
 
-.main_nav ul {
+.intro {
+  font-size: 30px;
+  text-align: center;
+background-color: #cceeff;
+
+}
+
+.main_nav {
+  display: flex;
+  align-items: center;
+}
+.main_nav {
     list-style-type: none;
-    width: 500px;
+
+    /* width: 500px; */
     /* background-color:#d0b1a2; */
 }
 
-.main_nav li{
+.main_nav .mn-1{
+  align items: center;
   margin: 15px;
   padding: 15px;
   font-size: 25px;
   color: black;
   display: inline-block;
-  background-color: #d0b1a2;
+  background-color: #cceeff;
   border: 15px;
-  border-color: blue;
+  border-color: #0099e6;
   border-width: medium;
   border-style: ridge;
   border-radius: 20px;
-
-
 }
 
+.main_nav .mn-2{
+
+  margin: 5px;
+  padding: 5px;#
+  font-size: 5px;
+  color: black;
+  display: block;
+  background-color: #cceeff;
+  border: 5px;
+  border-color: #0099e6;
+  border-width: medium;
+  border-style: ridge;
+  border-radius: 20px;
+}
+
+.main_nav .mn-2 .form-el{
+  display: flex;
+  /* float: right; */
+  background-color: #cceeff;
+}
+
+.form-wrapper{
+  align items: center;
+  margin: 15px;
+  padding: 15px;
+  font-size: 25px;
+  color: black;
+  display: inline-flex;
+  font-size: 20px;
+  background-color: #cceeff;
+  border: 5px;
+  border-color: #0099e6;
+  border-width: medium;
+  border-style: ridge;
+  border-radius: 20px;
+}
+
+.form-wrapper .form-sub {
+  float: left;
+}
 /* unvisited link */
 
 a:link {

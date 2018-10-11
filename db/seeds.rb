@@ -56,6 +56,15 @@ options = {
   crag3 = Crag.new(options)
   crag3.save
 
+options = {
+  "crag_name" => "Etive Slabs",
+  "elevation" => 300,
+  "aspect" => "ESE",
+  "book_id" => book4.id
+  }
+  crag4 = Crag.new(options)
+  crag4.save
+
   crag_list = Crag.all
 
 
@@ -138,6 +147,36 @@ options = {
     }
     route6 = Route.new(options)
     route6.save
+
+  options = {
+    "route_name" => "The Long Wait",
+    "summer_grade" => "E2, 5c",
+    "winter_grade" => nil,
+    "length" => 255,
+    "crag_id" => crag4.id
+    }
+    route9 = Route.new(options)
+    route9.save
+
+  options = {
+    "route_name" => "Spartan Slab",
+    "summer_grade" => "VS",
+    "winter_grade" => nil,
+    "length" => 190,
+    "crag_id" => crag4.id
+    }
+    route10 = Route.new(options)
+    route10.save
+
+  options = {
+    "route_name" => "Hammer",
+    "summer_grade" => "HVS",
+    "winter_grade" => nil,
+    "length" => 150,
+    "crag_id" => crag4.id
+    }
+    route11 = Route.new(options)
+    route11.save
 
     Route.all
 
