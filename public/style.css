@@ -93,7 +93,7 @@ a:link .add-new {
 
 .main_nav .mn-2 .form-el{
   display: flex;
-  /* float: right; */
+  float: right;
   background-color: #cceeff;
 }
 
@@ -159,9 +159,15 @@ tr:nth-child(odd) {background-color: #e6ffff;}
 tr:nth-child(even) {background-color: #e6f7ff;}
 
 
-/* .form-wrapper .form-el {
+.form-wrapper .form-el {
+  border-color: #0099e6;
+  border-width: medium;
+  border-style: ridge;
+  border-radius: 20px;
   display: inline;
-} */
+  margin: 15px;
+  padding: 15px;
+}
 
 .list {
 
