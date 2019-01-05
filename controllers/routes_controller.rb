@@ -49,6 +49,7 @@ end
 
 #############POSITION OF THIS MATTERS!!!#########
 get ('/routes/:id') do
+  binding.pry
   @routes = Route.find_route_name(params[:route_name])
   erb(:"routes/index")
 end
