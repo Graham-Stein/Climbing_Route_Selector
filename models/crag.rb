@@ -102,7 +102,7 @@ class Crag
   def delete()
     sql = "DELETE FROM crags
     WHERE id = $1;"
-    binding.pry
+    # binding.pry
     values = [@id]
     SqlRunner.run(sql, values)
   end
