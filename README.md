@@ -7,6 +7,7 @@ Details of the design spec are in the attached brief (climbing_guide_book.md)
 From the top level in the route_selector folder:
 
 Create Database in PSQL:
+createdb climbing_guides
 psql -d climbing_guides -f db/climbing_guides.sql
 
 Seed the database with some sample data:
