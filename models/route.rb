@@ -168,11 +168,11 @@ class Route
   def grade()
     sg = @summer_grade
     wg = @winter_grade
-      if sg != nil && wg != nil
+      if sg != nil && sg != "" && wg != nil && wg != ""
       grade = "#{sg} and #{wg}"
-      elsif sg == nil
+    elsif sg == nil || sg == ""
       grade = "#{wg}"
-      elsif wg == nil
+    elsif wg == nil || wg == ""
       grade = "#{sg}"
       end
     return grade
