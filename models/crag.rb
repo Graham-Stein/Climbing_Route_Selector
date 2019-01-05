@@ -57,11 +57,13 @@ class Crag
   end
 
   def self.find(id)
-    sql = "SELECT * FROM books
+      # sql = "SELECT * FROM books"
+    sql = "SELECT * FROM crags
     WHERE id = $1;"
     values = [id]
-    book = SqlRunner.run(sql, values)
-    result = Crag.new(book[0])
+    crag = SqlRunner.run(sql, values)
+    # binding.pry
+    result = Crag.new(crag[0])
     return result
   end
 
@@ -100,6 +102,7 @@ class Crag
   def delete()
     sql = "DELETE FROM crags
     WHERE id = $1;"
+    binding.pry
     values = [@id]
     SqlRunner.run(sql, values)
   end

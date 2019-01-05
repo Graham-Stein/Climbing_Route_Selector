@@ -27,6 +27,7 @@ end
 
 get ('/crags/:id/edit') do
   @crag = Crag.find(params[:id])
+  # binding.pry
   erb(:"crags/edit")
 end
 

@@ -17,10 +17,15 @@ class Route
   end
 
   def crag()
+    # SQL statement to select all from crags based on ID
     sql = "SELECT * FROM crags where id = $1"
+    # define value for the crag_id
     values = [@crag_id]
+    # pass SQL and ID into SqlRunner to return the selected crag
     crag = SqlRunner.run(sql, values)
+    # Instantiate a Crag object with the attributes returned from the DB
     result = Crag.new(crag[0])
+    # Return the crag object
     return result
   end
 
